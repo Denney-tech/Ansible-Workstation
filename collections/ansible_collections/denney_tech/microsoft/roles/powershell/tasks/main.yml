@@ -1,5 +1,10 @@
 ---
 # tasks file for powershell
+- name: Trust Microsoft RPM Key
+  ansible.builtin.rpm_key:
+    state: present
+    key: "https://packages.microsoft.com/keys/microsoft.asc"
+
 - include_tasks: "{{item}}"
   with_first_found:
     - "{{ansible_os_family}}-{{ansible_distribution}}.yml"
