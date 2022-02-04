@@ -1,0 +1,4 @@
+---
+- name: Enable Microsoft Repos
+  ansible.builtin.yum_repository:
+

@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: "{{if ansible_user != 'root' true else false}}"
+  gather_facts: true
+  vars:
+    pull_repo: "https://github.com/denney-tech/Ansible-Workstation.git"
+    pull_working_dir: /usr/share/local/ansible/
+  collections:
+    - collection: denney_tech.microsoft
+  roles:
+    - role: powershell
